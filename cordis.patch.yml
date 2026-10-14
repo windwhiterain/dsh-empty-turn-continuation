@@ -1,0 +1,21 @@
+# dsh-empty-turn-continuation bundle patch: inserts the guard row.
+#
+# The row carries no `inject`: it observes `session/event`, `tools/post-execute`,
+# and `agent/turn-stopping`, which every profile already dispatches.
+#
+# `maxContinuations` bounds how many times ONE turn may be carried on after an
+# empty stop. It resets at every `turn/start`. Set it to 0 to keep the row
+# mounted and inert.
+#
+# `message` is the text the model reads on the continuation step. Replace it if
+# you want the nudge to name a house style, or to tell the model to answer in
+# another language.
+- insert:
+    - id: empty-turn-continuation
+      name: 'dsh-empty-turn-continuation'
+      config:
+        maxContinuations: 3
+        message: >-
+          Your previous response ended without any visible text. Continue the
+          task and reply with real content for the user. If the task is already
+          finished, restate the result.

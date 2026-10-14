@@ -1,0 +1,40 @@
+{
+  "name": "dsh-empty-turn-continuation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Continue a DeepSeek Harness turn that ended without any visible reply text, instead of closing the task on an empty message.",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "bundle",
+    "plugin",
+    "agent-loop"
+  ],
+  "license": "MIT",
+  "author": "windwhiterain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windwhiterain/dsh-empty-turn-continuation.git"
+  },
+  "homepage": "https://github.com/windwhiterain/dsh-empty-turn-continuation#readme",
+  "bugs": {
+    "url": "https://github.com/windwhiterain/dsh-empty-turn-continuation/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "probe.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
